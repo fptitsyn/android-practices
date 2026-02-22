@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button"
@@ -16,6 +18,7 @@
             android:layout_weight="1"
             app:cornerRadius="4dp" />
         <TextView
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tableView"
@@ -43,6 +46,7 @@
             app:cornerRadius="4dp" />
 
         <CheckBox
+            android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CheckBox"

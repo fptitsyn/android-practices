@@ -1,6 +1,7 @@
 package ru.mirea.ptitsyn.multiactivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -12,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class SecondActivity extends AppCompatActivity {
 
     private TextView textView;
+
+    private final String TAG = SecondActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,45 @@ public class SecondActivity extends AppCompatActivity {
             String userInput = getIntent().getStringExtra("userInput");
             textView.setText(userInput);
 
+            Log.i(TAG, "SecondActivity onCreate");
+
             return insets;
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "SecondActivity onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "SecondActivity onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "SecondActivity onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "SecondActivity onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "SecondActivity onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "SecondActivity onDestroy");
     }
 }

@@ -1,9 +1,11 @@
 package ru.mirea.ptitsyn.dialog;
 
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -80,7 +82,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickShowDateDialog(View view) {
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Snackbar snackbar = Snackbar
+                        .make(layout, String.format(Locale.ROOT,
+                                        "%d число %d месяца %d года", dayOfMonth, month, year),
+                                Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", v ->
+                                Toast.makeText(
+                                                MainActivity.this,
+                                                "Undo Clicked",
+                                                Toast.LENGTH_SHORT
+                                        )
+                                        .show());
 
+                snackbar.show();
+            }
+        };
+
+        MyDateDialogFragment dateDialogFragment = new MyDateDialogFragment(MainActivity.this,
+                onDateSetListener, 2026, 1, 1);
+        dateDialogFragment.show();
     }
 
     public void onClickShowProgressDialog(View view) {

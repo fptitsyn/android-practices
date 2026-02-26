@@ -1,6 +1,7 @@
 package ru.mirea.ptitsyn.dialog;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -107,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickShowProgressDialog(View view) {
-
+        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("Progress dialog is deprecated");
+        progressDialog.show();
     }
 }

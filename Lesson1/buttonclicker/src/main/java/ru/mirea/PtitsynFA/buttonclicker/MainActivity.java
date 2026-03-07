@@ -23,21 +23,20 @@ public class MainActivity extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-
-            tvOut = findViewById(R.id.tvOut);
-            btnWhoAmI = findViewById(R.id.btnWhoAmI);
-            btnItIsNotMe = findViewById(R.id.btnItIsNotMe);
-            checkBox = findViewById(R.id.checkBox);
-
-            View.OnClickListener onBtnWhoIAm = new View.OnClickListener() {
-            @Override
-                public void onClick(View view) {
-                    tvOut.setText("Мой номер по списку № 20");
-                }};
-            btnWhoAmI.setOnClickListener(onBtnWhoIAm);
-
             return insets;
         });
+
+        tvOut = findViewById(R.id.tvOut);
+        btnWhoAmI = findViewById(R.id.btnWhoAmI);
+        btnItIsNotMe = findViewById(R.id.btnItIsNotMe);
+        checkBox = findViewById(R.id.checkBox);
+
+        View.OnClickListener onBtnWhoIAm = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvOut.setText("Мой номер по списку № 20");
+            }};
+        btnWhoAmI.setOnClickListener(onBtnWhoIAm);
     }
 
     public void onItIsNotMeClick(View view) {

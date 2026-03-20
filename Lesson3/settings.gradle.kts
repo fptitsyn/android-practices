@@ -26,3 +26,5 @@ rootProject.name = "Lesson3"
 include(":IntentApp")
 include(":sharer")
 include(":FavoriteBook")
+include(":systemintentsapp")
+include(":simplefragmentapp")

@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "Lesson4"
 include(":MusicPlayerBinding")
 include(":thread")
+include(":datathread")

@@ -26,3 +26,5 @@ rootProject.name = "Lesson4"
 include(":MusicPlayerBinding")
 include(":thread")
 include(":datathread")
+include(":looper")
+include(":CryptoLoader")

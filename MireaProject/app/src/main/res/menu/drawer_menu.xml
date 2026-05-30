@@ -13,4 +13,9 @@
         android:id="@+id/nav_worker"
         android:title="Worker Screen" />
 
+    <item android:id="@+id/nav_permission" android:title="Permission Screen" />
+    <item android:id="@+id/nav_compass" android:title="Compass Screen" />
+    <item android:id="@+id/nav_photo_note" android:title="Photonote Screen" />
+    <item android:id="@+id/nav_voice" android:title="Voice Recorder Screen" />
+
 </menu>

@@ -50,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new WebViewFragment();
                 } else if (itemId == R.id.nav_worker) {
                     selectedFragment = new BackgroundTaskFragment();
-                }
+                } else if (itemId == R.id.nav_compass) selectedFragment = new CompassFragment();
+                else if (itemId == R.id.nav_photo_note) selectedFragment = new PhotoNoteFragment();
+                else if (itemId == R.id.nav_voice) selectedFragment = new VoiceRecorderFragment();
+                else if (itemId == R.id.nav_permission) selectedFragment = new PermissionFragment();
 
                 if (selectedFragment != null) {
                     getSupportFragmentManager().beginTransaction()

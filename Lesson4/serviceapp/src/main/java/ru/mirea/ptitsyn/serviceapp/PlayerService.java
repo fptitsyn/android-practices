@@ -23,7 +23,7 @@ public class PlayerService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaPlayer = MediaPlayer.create(this, R.raw.music); // music.mp3 в res/raw
+        mediaPlayer = MediaPlayer.create(this, R.raw.music);
         mediaPlayer.setLooping(false);
         createNotificationChannel();
     }

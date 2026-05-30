@@ -50,10 +50,23 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new WebViewFragment();
                 } else if (itemId == R.id.nav_worker) {
                     selectedFragment = new BackgroundTaskFragment();
-                } else if (itemId == R.id.nav_compass) selectedFragment = new CompassFragment();
-                else if (itemId == R.id.nav_photo_note) selectedFragment = new PhotoNoteFragment();
-                else if (itemId == R.id.nav_voice) selectedFragment = new VoiceRecorderFragment();
-                else if (itemId == R.id.nav_permission) selectedFragment = new PermissionFragment();
+                } else if (itemId == R.id.nav_compass) {
+                    selectedFragment = new CompassFragment();
+                }
+                else if (itemId == R.id.nav_photo_note) {
+                    selectedFragment = new PhotoNoteFragment();
+                }
+                else if (itemId == R.id.nav_voice) {
+                    selectedFragment = new VoiceRecorderFragment();
+                }
+                else if (itemId == R.id.nav_permission) {
+                    selectedFragment = new PermissionFragment();
+                }
+                else if (item.getItemId() == R.id.nav_profile) {
+                    selectedFragment = new ProfileFragment();
+                } else if (item.getItemId() == R.id.nav_file_work) {
+                    selectedFragment = new FileWorkFragment();
+                }
 
                 if (selectedFragment != null) {
                     getSupportFragmentManager().beginTransaction()

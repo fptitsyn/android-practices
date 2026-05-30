@@ -3,6 +3,7 @@ package ru.mirea.ptitsyn.thread;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +16,7 @@ import ru.mirea.ptitsyn.thread.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +32,10 @@ public class MainActivity extends AppCompatActivity {
         binding.calculateButton.setOnClickListener(v -> {
             String totalStr = binding.totalLessonsEditText.getText().toString();
             String daysStr = binding.studyDaysEditText.getText().toString();
-            if (totalStr.isEmpty() || daysStr.isEmpty()) {
-                Toast.makeText(this, "Введите оба значения", Toast.LENGTH_SHORT).show();
-                return;
-            }
+
             int totalLessons = Integer.parseInt(totalStr);
             int studyDays = Integer.parseInt(daysStr);
-            if (studyDays == 0) {
-                Toast.makeText(this, "Количество дней не может быть 0", Toast.LENGTH_SHORT).show();
-                return;
-            }
+
             new Thread(() -> {
                 double average = (double) totalLessons / studyDays;
                 runOnUiThread(() -> binding.resultTextView.setText("Среднее количество пар в день: " + average));
@@ -47,14 +43,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.slowButton.setOnClickListener(v -> {
-            new Thread(() -> {
-                long endTime = System.currentTimeMillis() + 20 * 1000;
-                while (System.currentTimeMillis() < endTime) {
-                    // имитация работы
+            new Thread(new Runnable() {
+                public void run() {
+                    int numberThread = counter++;
+                    Log.d("ThreadProject", String.format("Запущен поток № %d студентом группы № %s номер по списку № %d ", numberThread, "БСБО-08-23", 20));
+                    long endTime = System.currentTimeMillis() + 20 * 1000;
+                    while (System.currentTimeMillis() < endTime) {
+                        synchronized (this) {
+                            try {
+                                wait(endTime - System.currentTimeMillis());
+                                Log.d(MainActivity.class.getSimpleName(), "Endtime: " + endTime);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                        Log.d("ThreadProject", "Выполнен поток № " + numberThread);
+                    }
                 }
-                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Heavy work done in background", Toast.LENGTH_SHORT).show());
             }).start();
-            Toast.makeText(this, "Heavy work started in background", Toast.LENGTH_SHORT).show();
         });
     }
 }

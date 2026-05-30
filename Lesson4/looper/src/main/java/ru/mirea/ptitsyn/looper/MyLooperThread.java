@@ -24,14 +24,12 @@ public class MyLooperThread extends Thread {
 
                 Log.d(TAG, "Получено: возраст=" + age + ", работа=" + job);
 
-                // Задержка на количество секунд, равное возрасту
                 try {
                     Thread.sleep(age * 1000L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-                // Вывод результата в Log.d после задержки
                 Log.d(TAG, "Результат: возраст " + age + " лет, работа: " + job +
                         ". Задержка составила " + age + " секунд(ы)");
             }

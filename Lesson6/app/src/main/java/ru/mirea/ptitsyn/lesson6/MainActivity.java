@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-        // Загрузка сохранённых данных
         String group = sharedPref.getString("GROUP", "");
         int number = sharedPref.getInt("NUMBER", 0);
         String movie = sharedPref.getString("MOVIE", "");

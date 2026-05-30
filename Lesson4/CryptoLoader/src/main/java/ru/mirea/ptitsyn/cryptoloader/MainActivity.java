@@ -26,10 +26,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         binding.encryptButton.setOnClickListener(v -> {
             String plainText = binding.inputEditText.getText().toString();
-            if (plainText.isEmpty()) {
-                Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show();
-                return;
-            }
+
             try {
                 SecretKey key = generateKey();
                 byte[] encrypted = encryptMsg(plainText, key);

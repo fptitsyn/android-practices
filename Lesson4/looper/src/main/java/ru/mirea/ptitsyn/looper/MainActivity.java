@@ -23,21 +23,8 @@ public class MainActivity extends AppCompatActivity {
             String ageStr = binding.ageEditText.getText().toString();
             String job = binding.jobEditText.getText().toString();
 
-            if (ageStr.isEmpty()) {
-                Toast.makeText(this, "Введите возраст", Toast.LENGTH_SHORT).show();
-                return;
-            }
             int age = Integer.parseInt(ageStr);
-            if (age <= 0) {
-                Toast.makeText(this, "Возраст должен быть больше 0", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (job.isEmpty()) {
-                Toast.makeText(this, "Введите профессию", Toast.LENGTH_SHORT).show();
-                return;
-            }
 
-            // Отправляем сообщение в поток Looper
             Message msg = new Message();
             Bundle bundle = new Bundle();
             bundle.putInt("age", age);
@@ -46,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
             myLooperThread.getHandler().sendMessage(msg);
 
             binding.statusTextView.setText("Статус: обработка (задержка " + age + " сек)");
-            Toast.makeText(this, "Данные отправлены, задержка " + age + " секунд", Toast.LENGTH_SHORT).show();
         });
     }
 

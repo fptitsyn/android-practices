@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/nav_data"
-        android:title="Data Screen"/>
-
-    <item
-        android:id="@+id/nav_web"
-        android:title="Web Screen"/>
-
-    <item
-        android:id="@+id/nav_worker"
-        android:title="Worker Screen" />
-
-    <item android:id="@+id/nav_permission" android:title="Permission Screen" />
-    <item android:id="@+id/nav_compass" android:title="Compass Screen" />
-    <item android:id="@+id/nav_photo_note" android:title="Photonote Screen" />
-    <item android:id="@+id/nav_voice" android:title="Voice Recorder Screen" />
+    <item android:id="@+id/nav_data" android:title="Data Screen" />
+    <item android:id="@+id/nav_web" android:title="Web Screen" />
+    <item android:id="@+id/nav_worker" android:title="Worker Screen" />
+    <item android:id="@+id/nav_permission" android:title="Работа с разрешениями" />
+    <item android:id="@+id/nav_compass" android:title="Компасс" />
+    <item android:id="@+id/nav_photo_note" android:title="Фотозаметки" />
+    <item android:id="@+id/nav_voice" android:title="Диктофон" />
     <item android:id="@+id/nav_profile" android:title="Профиль" />
     <item android:id="@+id/nav_file_work" android:title="Работа с файлами" />
 

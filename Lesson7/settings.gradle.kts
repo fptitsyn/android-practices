@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Lesson7"
 include(":TimeService")
+include(":httpurlconnection")

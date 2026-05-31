@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.nav_file_work) {
                     selectedFragment = new FileWorkFragment();
                 }
+                else if (item.getItemId() == R.id.nav_network) {
+                    selectedFragment = new NetworkFragment();
+                }
 
                 if (selectedFragment != null) {
                     getSupportFragmentManager().beginTransaction()

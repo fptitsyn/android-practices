@@ -2,6 +2,8 @@ package ru.mirea.ptitsyn.lesson8;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.PointF;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,9 @@ import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.layers.ObjectEvent;
 import com.yandex.mapkit.map.CameraPosition;
+import com.yandex.mapkit.map.CompositeIcon;
+import com.yandex.mapkit.map.IconStyle;
+import com.yandex.mapkit.map.RotationType;
 import com.yandex.mapkit.mapview.MapView;
 import com.yandex.mapkit.user_location.UserLocationLayer;
 import com.yandex.mapkit.user_location.UserLocationObjectListener;
@@ -84,9 +89,25 @@ public class MainActivity extends AppCompatActivity implements UserLocationObjec
 
     @Override
     public void onObjectAdded(@NonNull UserLocationView userLocationView) {
-        // Устанавливаем иконку для метки местоположения
-        userLocationView.getPin().setIcon(ImageProvider.fromResource(this, R.drawable.ic_launcher_foreground));
-        userLocationView.getArrow().setIcon(ImageProvider.fromResource(this, R.drawable.ic_launcher_foreground));
+        userLocationLayer.setAnchor(
+                new PointF((float)(mapView.getWidth() * 0.5),
+                        (float)(mapView.getHeight() * 0.5)),
+                new PointF((float)(mapView.getWidth() * 0.5),
+                        (float)(mapView.getHeight() * 0.83)));
+// При определении направления движения устанавливается следующая иконка
+        userLocationView.getArrow().setIcon(ImageProvider.fromResource(
+                this, android.R.drawable.arrow_up_float));
+// При получении координат местоположения устанавливается следующая иконка
+        CompositeIcon pinIcon = userLocationView.getPin().useCompositeIcon();
+        pinIcon.setIcon(
+                "pin",
+                ImageProvider.fromResource(this, R.drawable.baseline_vaping_rooms_24),
+                new IconStyle().setAnchor(new PointF(0.5f, 0.5f))
+                        .setRotationType(RotationType.ROTATE)
+                        .setZIndex(1f)
+                        .setScale(0.5f)
+        );
+        userLocationView.getAccuracyCircle().setFillColor(Color.BLUE & 0x99ffffff);
     }
 
     @Override

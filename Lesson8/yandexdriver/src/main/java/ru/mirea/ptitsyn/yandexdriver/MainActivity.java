@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
                 Toast.makeText(
                         getApplicationContext(),
-                        "РТУ МИРЭА\nМосква, проспект Вернадского",
+                        "Тануки\nМосква, метро Лубянка",
                         Toast.LENGTH_SHORT
                 ).show();
 
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         VehicleOptions vehicleOptions =
                 new VehicleOptions();
 
-        drivingOptions.setRoutesCount(4);
+        drivingOptions.setRoutesCount(2);
 
         ArrayList<RequestPoint> requestPoints =
                 new ArrayList<>();

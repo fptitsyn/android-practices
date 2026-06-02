@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "Lesson8"
 include(":YandexMaps")
 include(":yandexdriver")
+include(":osmmaps")

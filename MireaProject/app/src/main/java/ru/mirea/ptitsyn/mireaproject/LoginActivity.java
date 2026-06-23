@@ -51,6 +51,9 @@ public class LoginActivity extends AppCompatActivity {
                 mAuth.getCurrentUser();
 
         updateUI(currentUser);
+        if (currentUser != null) {
+            SuccessfullyLoggedIn();
+        }
     }
 
     private void createAccount() {
